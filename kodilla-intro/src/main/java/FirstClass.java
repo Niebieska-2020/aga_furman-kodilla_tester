@@ -22,11 +22,12 @@ public class FirstClass {
         oldNotebook.printPriceComparisonToYear();
 
         LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(2100);
+        boolean isLeapYear = leapYear.isLeapYear(2020);
         if (isLeapYear) {
             System.out.println("This year is a leap year.");
         } else {
             System.out.println("This year is NOT a leap year.");
         }
+        leapYear.isLeapYear2(2020);
     }
 }
