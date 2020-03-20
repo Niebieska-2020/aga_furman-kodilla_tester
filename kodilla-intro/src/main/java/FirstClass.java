@@ -20,5 +20,13 @@ public class FirstClass {
         oldNotebook.checkPrice();
         oldNotebook.checkWeight();
         oldNotebook.yearPrice();
-            }
+
+        LeapYear leapYear = new LeapYear();
+        boolean isLeapYear = leapYear.isLeapYear(2100);
+        if (isLeapYear) {
+            System.out.println("Przestępny");
+        } else {
+            System.out.println("Nie przestępny");
+        }
+    }
 }
