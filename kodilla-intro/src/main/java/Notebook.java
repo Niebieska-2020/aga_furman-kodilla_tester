@@ -11,13 +11,13 @@ public class Notebook {
         this.year = year;
     }
 
-    public void checkPrice() {
+    public void printPriceCategory() {
         if (this.price < 600) {
-            System.out.println("This notebook is very cheap.");
+            System.out.println("Very cheap.");
         } else if (this.price > 600 && this.price < 1000) {
-            System.out.println("This is good price.");
+            System.out.println("Good price.");
         } else {
-            System.out.println("This notebook is quite expensive.");
+            System.out.println("Expensive price.");
         }
     }
 
@@ -25,17 +25,17 @@ public class Notebook {
         return this.weight;
     }
 
-    public void checkWeight() {
+    public void printWeightCategory() {
         if(this.weight < 600) {
-            System.out.println("This one is lightweight.");
+            System.out.println("Lightweight.");
         } else if(this.weight > 600 && this.weight < 1700) {
-            System.out.println("This is not too heavy.");
+            System.out.println("Heavy.");
         } else {
-            System.out.println("This one is very heavy.");
+            System.out.println("Very heavy.");
         }
     }
 
-    public void yearPrice() {
+    public void printPriceComparisonToYear() {
         if(this.price < 1000 && this.year < 2015) {
             System.out.println("This is old but price low.");
         } else if (this.price > 1000 && this.year > 2015) {
