@@ -20,23 +20,26 @@ public class Notebook {
             System.out.println("This notebook is quite expensive.");
         }
     }
+
     public int getWeight() {
         return this.weight;
     }
-        public void checkWeight() {
-            if(this.weight < 600) {
-                System.out.println("This one is lightweight.");
-            } else if(this.weight > 600 && this.weight < 1700) {
-                System.out.println("This is not too heavy.");
-            } else {
-                System.out.println("This one is very heavy.");
-            }
-        }
-        public void yearPrice() {
-            if(this.price < 1000 && this.year < 2015) {
-                System.out.println("This is old but price low.");
-            } else if (this.price > 1000 && this.year > 2015) {
-                System.out.println("Good price in a good production year.");
-            }
+
+    public void checkWeight() {
+        if(this.weight < 600) {
+            System.out.println("This one is lightweight.");
+        } else if(this.weight > 600 && this.weight < 1700) {
+            System.out.println("This is not too heavy.");
+        } else {
+            System.out.println("This one is very heavy.");
         }
     }
+
+    public void yearPrice() {
+        if(this.price < 1000 && this.year < 2015) {
+            System.out.println("This is old but price low.");
+        } else if (this.price > 1000 && this.year > 2015) {
+            System.out.println("Good price in a good production year.");
+        }
+    }
+}
