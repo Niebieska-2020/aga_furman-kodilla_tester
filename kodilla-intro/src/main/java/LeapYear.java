@@ -4,7 +4,7 @@ public class LeapYear {
         return ((yearCheck % 4 == 0) || (yearCheck % 400 == 0)) && (yearCheck % 100 != 0);
     }
 
-    public void isLeapYear2(int yearCheck) {
+    public boolean isLeapYear2(int yearCheck) {
 
         if ((yearCheck % 4)!= 0) {
             System.out.println("This year is NOT a leap year.");
@@ -15,5 +15,7 @@ public class LeapYear {
         } else {
             System.out.println("This year is NOT a leap year.");
         }
+        boolean b = false;
+        return b;
     }
 }
