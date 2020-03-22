@@ -12,7 +12,7 @@ public class SimpleArray {
         System.out.println(myBuddy);
 
         int numberOFElements = name.length;
-
         System.out.println("Moja tablica zawiera" + " " + numberOFElements + " " + "elementów.");
     }
 }
+
