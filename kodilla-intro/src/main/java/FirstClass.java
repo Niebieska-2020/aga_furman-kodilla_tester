@@ -29,5 +29,11 @@ public class FirstClass {
             System.out.println("This year is NOT a leap year.");
         }
         leapYear.isLeapYear2(2100);
+
+        // wywolanie wyniku klasy Loops;
+        Loops theResult = new Loops();
+        int newTab[] = new int[]{4, 7, 10};
+        int result = theResult.sumNumbers(newTab);
+        System.out.println(result);
     }
 }
