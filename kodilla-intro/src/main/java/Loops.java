@@ -26,6 +26,7 @@ public class Loops {
             }
         return result;
     }
+
     public int getCountOfRandomNumber(int max) {
         Random random = new Random();
         int result = 0;
