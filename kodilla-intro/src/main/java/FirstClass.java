@@ -30,7 +30,7 @@ public class FirstClass {
         }
         leapYear.isLeapYear2(2100);
 
-        // wywolanie wyniku klasy Loops;
+        // wywolanie wyniku sumNumber z klasy Loops;
         Loops theResult = new Loops();
         int newTab[] = new int[]{4, 7, 10};
         int result = theResult.sumNumbers(newTab);
