@@ -28,7 +28,13 @@ public class FirstClass {
         } else {
             System.out.println("This year is NOT a leap year.");
         }
-        leapYear.isLeapYear2(2100);
+        LeapYear leapYear2 = new LeapYear();
+        boolean isLeapYear2 = leapYear2.isLeapYear2(2100);
+        if (isLeapYear2) {
+            System.out.println("This year is a leap year.");
+        } else {
+            System.out.println("This year is NOT a leap year.");
+        }
 
         // wywolanie wyniku sumNumber z klasy Loops;
         Loops theResult = new Loops();

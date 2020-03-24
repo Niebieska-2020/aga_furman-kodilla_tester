@@ -1,6 +1,6 @@
 public class User {
-        String name;
-        int age;
+    String name;
+    int age;
 
     public User(String name, int age) {
         this.name = name;
@@ -10,9 +10,11 @@ public class User {
     public String getName() {
         return name;
     }
-    public int getAge(){
+
+    public int getAge() {
         return age;
     }
+
     public static void main(String[] args) {
 
         User agnieszka = new User("Agnieszka", 35);
@@ -29,8 +31,8 @@ public class User {
         averageOfAge = 0;
         for (int i = 0; i < users.length; i++) {
             totalAge = totalAge + users[i].age;
-             averageOfAge = totalAge/users.length;
+            averageOfAge = totalAge / users.length;
         }
-        System.out.println("Average age is" + " " +averageOfAge);
+        System.out.println("Average age is" + " " + averageOfAge);
     }
 }
