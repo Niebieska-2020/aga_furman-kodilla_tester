@@ -21,9 +21,9 @@ public class FirstClass {
         oldNotebook.printWeightCategory();
         oldNotebook.printPriceComparisonToYear();
 
-        LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(2100);
-        if (isLeapYear) {
+        LeapYear leapYear1 = new LeapYear();
+        boolean isLeapYear1 = leapYear1.isLeapYear1(2100);
+        if (isLeapYear1) {
             System.out.println("This year is a leap year.");
         } else {
             System.out.println("This year is NOT a leap year.");

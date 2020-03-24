@@ -7,7 +7,7 @@ public class LeapYear {
         this.yearCheck = yearCheck;
     }
 
-    public boolean isLeapYear(int yearCheck) {
+    public boolean isLeapYear1(int yearCheck) {
         return ((yearCheck % 4 == 0) || (yearCheck % 400 == 0)) && (yearCheck % 100 != 0);
     }
 
