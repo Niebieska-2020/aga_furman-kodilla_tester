@@ -1,7 +1,6 @@
 public class LeapYear {
 
     int yearCheck;
-    boolean istrue;
 
     public LeapYear() {
         this.yearCheck = yearCheck;
@@ -11,11 +10,19 @@ public class LeapYear {
         return ((yearCheck % 4 == 0) || (yearCheck % 400 == 0)) && (yearCheck % 100 != 0);
     }
 
-    public boolean isLeapYear2(int yearCheck) {
-        if (yearCheck % 4 == 0 && yearCheck % 100 != 0 || yearCheck % 400 == 0) {
-            return istrue = true;
+    public boolean isLeapYear2(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
         } else {
-            return istrue = false;
+            return false;
         }
     }
 }
