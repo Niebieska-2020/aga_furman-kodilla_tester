@@ -2,17 +2,29 @@ package com.kodilla.abstracts.homework;
 
 public class Rectangle extends Shape {
 
-    public Rectangle() {
-        super(2, 3);
+    private int a;
+    private int b;
+
+    public Rectangle(int a, int b) {
+        this.a = a;
+        this.b = b;
     }
 
     @Override
-    public void surfaceAreaCalculation() {
-        System.out.println("The surface of the rectangle is" + " " + getA()*getB());
+    public double getFiled() {
+        return getA()*getB();
     }
 
     @Override
-    public void circumference() {
-        System.out.println("The circumference of the ractangle is"+ " " + (getA()+getB())*2);
+    public double getCircumference() {
+        return (getA()+getB())*2;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public int getB() {
+        return b;
     }
 }

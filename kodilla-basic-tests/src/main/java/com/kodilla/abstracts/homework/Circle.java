@@ -1,17 +1,23 @@
 package com.kodilla.abstracts.homework;
 
 public class Circle extends Shape {
+        private int radius;
 
-    public Circle() {
-        super(4, 0);
-    }
-    @Override
-    public void surfaceAreaCalculation() {
-        System.out.println("The surface of the circle is"+ " " + 3.14*getA()*getA());
-    }
+   public Circle(int radius){
+       this.radius = radius;
+   }
 
     @Override
-    public void circumference() {
-        System.out.println("The circumference of the circle is"+ " " + 2*3.14*getA());
+    public double getFiled() {
+        return 3.14*getRadius();
+    }
+
+    @Override
+    public double getCircumference() {
+        return 2*3.14*getRadius();
+    }
+
+    public int getRadius() {
+        return radius;
     }
 }
