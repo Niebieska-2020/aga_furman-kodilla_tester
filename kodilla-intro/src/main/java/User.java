@@ -31,8 +31,13 @@ public class User {
         averageOfAge = 0;
         for (int i = 0; i < users.length; i++) {
             totalAge = totalAge + users[i].age;
-            averageOfAge = totalAge / users.length;
+         }
+        averageOfAge = totalAge / users.length;
+
+        for (int a = 0; a < users.length; a++) {
+            if (users[a].age <averageOfAge) {
+                System.out.println(users[a].name);
+            }
         }
-        System.out.println("Average age is" + " " + averageOfAge);
     }
 }
