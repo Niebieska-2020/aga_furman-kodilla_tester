@@ -36,6 +36,5 @@ public class RandomNumbers {
            int maxNumber = randomNumbers.getMax();
         System.out.println("Minimum value" + " " + minNumber);
         System.out.println("Maximum value" + " " + maxNumber);
-
     }
 }

@@ -4,12 +4,12 @@ public class Linux extends OperatingSystem {
 
     @Override
     public void turnOn() {
-        super.turnOn();
+        System.out.println("Turn on the Linux system.");;
     }
 
     @Override
     public void turnOff() {
-        super.turnOff();
+        System.out.println("Turn off the Linux system.");
     }
 
     public Linux(int releastYear) {
