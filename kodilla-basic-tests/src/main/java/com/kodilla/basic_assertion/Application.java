@@ -6,7 +6,6 @@ public class Application {
         Calculator calculator = new Calculator();
         int a = 5;
         int b = 8;
-        int n = 2;
 
         int sumResult = calculator.sum(a, b);
         boolean correct = ResultChecker.assertEquals(13, sumResult);
@@ -22,14 +21,6 @@ public class Application {
             System.out.println("Metoda subtract działa poprawnie dla liczb " + a + " i " + b +".");
         } else {
             System.out.println("Metoda subtract nie działa poprawnie dla liczb " + a + " i " + b +".");
-        }
-
-        int powResult = calculator.power(a, n);
-        boolean correct2 = ResultChecker.assertEquals(25, powResult);
-        if (correct2) {
-            System.out.println("Metoda power działa poprawnie dla liczby " + a + " do potęgi drugiej.");
-        } else {
-            System.out.println("Metoda power działa nie poprawnie dla liczby " + a + " do potęgi drugiej.");
         }
     }
 }
