@@ -27,9 +27,9 @@ public class Application {
         int powResult = calculator.power(a, n);
         boolean correct2 = ResultChecker.assertEquals(25, powResult);
         if (correct2) {
-            System.out.println("Metoda pow działa poprawnie dla liczby " + a + " do potęgi drugiej.");
+            System.out.println("Metoda power działa poprawnie dla liczby " + a + " do potęgi drugiej.");
         } else {
-            System.out.println("Metoda pow działa nie poprawnie dla liczby " + a + " do potęgi drugiej.");
+            System.out.println("Metoda power działa nie poprawnie dla liczby " + a + " do potęgi drugiej.");
         }
     }
 }
