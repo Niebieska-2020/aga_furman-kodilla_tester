@@ -9,12 +9,12 @@ public class Circle extends Shape {
 
     @Override
     public double getFiled() {
-        return 3.14*getRadius();
+        return Math.PI*getRadius();
     }
 
     @Override
     public double getCircumference() {
-        return 2*3.14*getRadius();
+        return 2*Math.PI*getRadius();
     }
 
     public int getRadius() {
