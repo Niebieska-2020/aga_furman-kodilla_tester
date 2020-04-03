@@ -1,21 +1,28 @@
 public class LeapYear {
 
-    public boolean isLeapYear(int yearCheck) {
+    int yearCheck;
+
+    public LeapYear() {
+        this.yearCheck = yearCheck;
+    }
+
+    public boolean isLeapYear1(int yearCheck) {
         return ((yearCheck % 4 == 0) || (yearCheck % 400 == 0)) && (yearCheck % 100 != 0);
     }
 
-    public boolean isLeapYear2(int yearCheck) {
-
-        if ((yearCheck % 4)!= 0) {
-            System.out.println("This year is NOT a leap year.");
-        } else if ((yearCheck % 100)!= 0) {
-            System.out.println("This year is a leap year.");
-        } else if ((yearCheck % 400)== 0) {
-            System.out.println("This year is a leap year");
+    public boolean isLeapYear2(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
         } else {
-            System.out.println("This year is NOT a leap year.");
+            return false;
         }
-        boolean b = false;
-        return b;
     }
 }

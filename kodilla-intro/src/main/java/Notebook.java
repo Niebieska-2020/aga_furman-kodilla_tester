@@ -21,7 +21,7 @@ public class Notebook {
         }
     }
 
-    public int getWeight() {
+   public int getWeight() {
         return this.weight;
     }
 

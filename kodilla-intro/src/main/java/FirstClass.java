@@ -21,13 +21,25 @@ public class FirstClass {
         oldNotebook.printWeightCategory();
         oldNotebook.printPriceComparisonToYear();
 
-        LeapYear leapYear = new LeapYear();
-        boolean isLeapYear = leapYear.isLeapYear(2100);
-        if (isLeapYear) {
+        LeapYear leapYear1 = new LeapYear();
+        boolean isLeapYear1 = leapYear1.isLeapYear1(2100);
+        if (isLeapYear1) {
             System.out.println("This year is a leap year.");
         } else {
             System.out.println("This year is NOT a leap year.");
         }
-        leapYear.isLeapYear2(2100);
+        LeapYear leapYear2 = new LeapYear();
+        boolean isLeapYear2 = leapYear2.isLeapYear2(2100);
+        if (isLeapYear2) {
+            System.out.println("This year is a leap year.");
+        } else {
+            System.out.println("This year is NOT a leap year.");
+        }
+
+        // wywolanie wyniku sumNumber z klasy Loops;
+        Loops theResult = new Loops();
+        int newTab[] = new int[]{4, 7, 10};
+        int result = theResult.sumNumbers(newTab);
+        System.out.println(result);
     }
 }
