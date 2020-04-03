@@ -53,7 +53,7 @@ public class CashMachine {
                 withdrawalsCount++;
             }
         }
-        return withdrawalsCount;
+        return - withdrawalsCount;
     }
 
     public int getPaymentsSum() {
@@ -73,6 +73,7 @@ public class CashMachine {
                 withdrawalsSum = withdrawalsSum + transaction;
             }
         }
-        return - withdrawalsSum;
+        return -withdrawalsSum;
     }
+
 }
