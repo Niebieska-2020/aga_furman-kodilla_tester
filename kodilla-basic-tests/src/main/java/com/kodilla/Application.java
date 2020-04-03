@@ -1,4 +1,8 @@
-package com.kodilla.abstracts.homework;
+package com.kodilla;
+
+import com.kodilla.abstracts.homework.Circle;
+import com.kodilla.abstracts.homework.Rectangle;
+import com.kodilla.abstracts.homework.Square;
 
 public class Application {
 

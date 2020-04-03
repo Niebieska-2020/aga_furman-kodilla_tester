@@ -29,7 +29,7 @@ public class CashMachine {
         for (int i = 0; i < this.transactions.length; i++) {
             sum += this.transactions[i];
         }
-        return sum / this.transactions.length;
+        return sum;
     }
 
     public int numberOfTransactions() {
