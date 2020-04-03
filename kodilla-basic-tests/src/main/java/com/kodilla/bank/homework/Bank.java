@@ -1,52 +1,46 @@
 package com.kodilla.bank.homework;
 
 public class Bank {
-    private int transaction;
-    private CashMachine CashMachine;
-    private CashMachine CashMachine1;
-    private CashMachine CashMachine2;
 
-    public Bank() {
-        this.transaction = transaction;
-        this.CashMachine = new CashMachine();
-        this.CashMachine1 = new CashMachine();
-        this.CashMachine2 = new CashMachine();
+    private CashMachine[] cashMachines;
+
+    public int getBalance() {
+        int sum = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            sum = sum + cashMachine.balanceOfCashMachine();
+        }
+        return sum;
     }
 
-    public void addCashMachineTransaction(int transaction) {
-        this.CashMachine.addTransactions(transaction);
+    public int getPaymentsCount() {
+        int sum = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            sum = sum + cashMachine.getPaymentsCount();
+        }
+        return sum;
     }
 
-    public void addCashMachine1Transaction(int transaction) {
-        this.CashMachine1.addTransactions(transaction);
+    public int getWithdrawalsCount() {
+        int sum = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            sum = sum + cashMachine.getWithdrawalsCount();
+        }
+        return sum;
     }
 
-    public void addCashMachine2Transaction(int transaction) {
-        this.CashMachine2.addTransactions(transaction);
+    public double getAveragePaymentsCount() {
+        double sum = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            sum = sum + cashMachine.getPaymentsSum();
+        }
+        return sum / getPaymentsCount();
     }
 
-    public int getTransactions() {
-        return transaction;
+    public double getAverageWithdrawalsCount() {
+        double sum = 0;
+        for (CashMachine cashMachine : cashMachines) {
+            sum = sum + cashMachine.getWithdrawalsSum();
+        }
+        return sum / getWithdrawalsCount();
     }
-
-    public int[] getTransactionCashMachine() {
-        return this.CashMachine.getTransactions();
-    }
-
-    public int[] getTransactionCashMachine1() {
-        return this.CashMachine1.getTransactions();
-    }
-
-    public int[] getTransactionCashMachine2() {
-        return this.CashMachine2.getTransactions();
-    }
-    // całkowity bilans ze wszystkich bankomatów
-
-    // liczbę transakcji związana z wypłatą
-
-    // liczbę transakcji związaną z wpłatą pieniędzy,
-
-    // średnią wartość wypłaty
-
-    // średnią wartość wpłaty
 }

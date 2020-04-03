@@ -21,11 +21,11 @@ public class CashMachine {
         return transactions;
     }
 
-    public double balanceOfCashMachine() {
+    public int balanceOfCashMachine() {
         if (this.transactions.length == 0){
             return 0;
         }
-        double sum = 0;
+        int sum = 0;
         for (int i = 0; i < this.transactions.length; i++) {
             sum += this.transactions[i];
         }
@@ -34,5 +34,45 @@ public class CashMachine {
 
     public int numberOfTransactions() {
         return transactions.length;
+    }
+
+    public int getPaymentsCount() {
+        int paymentsCount = 0;
+        for (int transaction : transactions) {
+            if (transaction > 0) {
+                paymentsCount++;
+            }
+        }
+        return paymentsCount;
+    }
+
+    public int getWithdrawalsCount() {
+        int withdrawalsCount = 0;
+        for (int transaction : transactions) {
+            if (transaction < 0) {
+                withdrawalsCount++;
+            }
+        }
+        return withdrawalsCount;
+    }
+
+    public int getPaymentsSum() {
+        int paymentsSum = 0;
+        for (int transaction : transactions) {
+            if (transaction > 0) {
+                paymentsSum = paymentsSum + transaction;
+            }
+        }
+        return paymentsSum;
+    }
+
+    public int getWithdrawalsSum() {
+        int withdrawalsSum = 0;
+        for (int transaction : transactions) {
+            if (transaction < 0) {
+                withdrawalsSum = withdrawalsSum + transaction;
+            }
+        }
+        return - withdrawalsSum;
     }
 }
