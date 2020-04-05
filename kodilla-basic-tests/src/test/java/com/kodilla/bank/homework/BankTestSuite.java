@@ -1,57 +1,52 @@
 package com.kodilla.bank.homework;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class BankTestSuite {
 
     @Test
-    public void shouldHaveZeroTransactions() {
-        Bank bank = new Bank();
-        CashMachine[] cashMachines = bank.getCashMachines();
-        assertEquals(0, cashMachines.length);
+    public void shouldReturnCashMachineBalance() {
+        CashMachine cashMachine = new CashMachine();
+        int[] cashmachines = new int[] {50, 150, 400, -150};
+        int sumBalance = cashMachine.balanceOfCashMachine();
+        assertEquals(450, sumBalance);
     }
 
     @Test
-    public void shouldAddTwoElementsToArray() {
+    public void testgetBalance() {
         Bank bank = new Bank();
-        bank.addCashMachine(2000);
-        bank.addCashMachine(1500);
-
-        CashMachine[] cashMachines = bank.getCashMachines();
-        assertEquals(2, cashMachines.length);
-        assertEquals(2000, cashMachines[0]);
-        assertEquals(1500, cashMachines[1]);
+        int totalBalance = bank.getBalance(450);
+        assertEquals(450, totalBalance);
     }
 
     @Test
-    public void shouldCorrectCalculateBalance() {
+    public void testgetPaymentsCount() {
         Bank bank = new Bank();
-        bank.addCashMachine(2000);
-        bank.addCashMachine(-2000);
-        bank.addCashMachine(1600);
-
-        int balanceCashMachnies = bank.getBalance();
-        assertEquals(1600, balanceCashMachnies);
+        int sumResult = bank.getPaymentsCount();
+        assertEquals(600, sumResult);
     }
 
     @Test
-    public void shouldCorrectCalculatePaymentCount() {
+    public void testgetWithdrawalsCount() {
         Bank bank = new Bank();
+        int sumResult = bank.getWithdrawalsCount();
+        assertEquals(150, sumResult);
     }
 
     @Test
-    public void shouldCorrectCalculatePaymentSum() {
+    public void testgetAveragePaymentsCount() {
         Bank bank = new Bank();
+        double averageResult = bank.getAveragePaymentsCount();
+        assertEquals(200, averageResult);
     }
 
     @Test
-    public void shouldCorrectCalculateWithdrawalsCount() {
+    public void testgetAverageWithdrawalsCount() {
         Bank bank = new Bank();
-    }
-
-    @Test
-    public void shouldCorrectCalculateWithdrawalsSum() {
-        Bank bank = new Bank();
+        double averageWithdrawals = bank.getAverageWithdrawalsCount();
+        assertEquals(-150, averageWithdrawals);
     }
 }
