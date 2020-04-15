@@ -7,20 +7,25 @@ public class CashMachinesTestSuite {
 
     @Test
     public void shouldHaveZeroLength() {
-      CashMachine cashMachine = new CashMachine();
+        // given
+        CashMachine cashMachine = new CashMachine();
 
-      int[] values = cashMachine.getTransactions();
+        // when
+        int[] values = cashMachine.getTransactions();
+
+        // than
         assertEquals(0, values.length);
    }
 
     @Test
     public void shouldAddThreeTransactions() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(100);
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(0);
+        // given
+        CashMachine cashMachine = createCashMachine(new int []{100, -50, 0});
 
+        // when
         int[] transactions = cashMachine.getTransactions();
+
+        // than
         assertEquals(3, transactions.length);
         assertEquals(100, transactions[0]);
         assertEquals(-50, transactions[1]);
@@ -29,88 +34,105 @@ public class CashMachinesTestSuite {
 
     @Test
     public void shouldCountBalanceOfCashMachine() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(350);
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(0);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{350, -50, 0});
 
-        double countAverage = cashMachine.balanceOfCashMachine();
-        assertEquals(300, countAverage);
+        // when
+        double count = cashMachine.balanceOfCashMachine();
+
+        // then
+        assertEquals(300, count);
     }
 
     @Test
     public void shouldReturnAverageEqualsZeroIsArrayIsEmpty() {
-        CashMachine cashMachine = new CashMachine();
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{0});
+
+        // when
+        cashMachine.balanceOfCashMachine();
+
+        // then
         assertEquals(0, cashMachine.balanceOfCashMachine(), 0.01);
     }
 
     @Test
     public void shouldCountNumberOfTransactions() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(300);
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(-250);
-        cashMachine.addTransactions(600);
-        cashMachine.addTransactions(0);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{300, -50, -250, 600, 0});
 
+        // when
         int numberOfTransactions = cashMachine.numberOfTransactions();
+
+        // then
         assertEquals(5, numberOfTransactions);
     }
 
     @Test
-    public void shouldCountNumberOfTransactionIfAllTransactionsWithdrawalsMoney() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(-200);
+    public void shouldCountNumberOfTransactionIfAllTransactionsWithdrawals() {
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{-200, -50});
 
+        // when
         int countTransactions = cashMachine.numberOfTransactions();
+
+        // then
         assertEquals(2, countTransactions, 0.01);
     }
 
     @Test
     public void shouldReturnPaymentsCount() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(200);
-        cashMachine.addTransactions(-100);
-        cashMachine.addTransactions(250);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{200, -50, -100, 250});
 
+        // when
         int paymentsCount = cashMachine.getPaymentsCount();
+
+        // then
         assertEquals(2, paymentsCount, 0.1);
     }
 
     @Test
     public void shouldReturnWithdrawalsCount() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(200);
-        cashMachine.addTransactions(-100);
-        cashMachine.addTransactions(250);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{200, -50, -100, 250});
 
+        // when
         int withdrawalsCount = cashMachine.getWithdrawalsCount();
+
+        // then
         assertEquals(-2, withdrawalsCount);
     }
 
     @Test
     public void shouldReturnPaymentsSum() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(200);
-        cashMachine.addTransactions(-100);
-        cashMachine.addTransactions(250);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{200, -50, -100, 250});
 
-        int paymentSum = cashMachine.getPaymentsSum();
-        assertEquals(450, paymentSum, 0.1);
+        // when
+        int paymentsSum = cashMachine.getPaymentsSum();
+
+        // then
+        assertEquals(450, paymentsSum, 0.1);
     }
 
     @Test
     public void shouldReturnWithdrawalsSum() {
-        CashMachine cashMachine = new CashMachine();
-        cashMachine.addTransactions(-50);
-        cashMachine.addTransactions(200);
-        cashMachine.addTransactions(-100);
+        // given
+        CashMachine cashMachine = createCashMachine(new int[]{200, -50, -100});
 
+        // when
         int withdrawalsSum = cashMachine.getWithdrawalsSum();
+
+        // then
         assertEquals(150, withdrawalsSum);
+    }
+
+    private CashMachine createCashMachine(int[] transactions) {
+        CashMachine cashMachine = new CashMachine();
+        for (int transaction : transactions) {
+            cashMachine.addTransaction(transaction);
+        }
+        return cashMachine;
     }
 }

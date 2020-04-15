@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.abstracts.homework;
 
 import com.kodilla.abstracts.homework.Circle;
 import com.kodilla.abstracts.homework.Rectangle;
