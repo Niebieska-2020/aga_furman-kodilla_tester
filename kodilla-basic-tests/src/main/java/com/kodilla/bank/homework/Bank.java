@@ -19,6 +19,9 @@ public class Bank {
     }
 
     public int getBalance() {
+        if (this.cashMachines.length == 0) {
+            return 0;
+        }
         int sum = 0;
         for (CashMachine cashMachine : cashMachines) {
             sum = sum + cashMachine.balanceOfCashMachine();
@@ -29,7 +32,9 @@ public class Bank {
     public int getPaymentsCount() {
         int sum = 0;
         for (CashMachine cashMachine : cashMachines) {
-            sum = sum + cashMachine.getPaymentsCount();
+            if (cashMachine != null) {
+                sum += cashMachine.getPaymentsCount();
+            }
         }
         return sum;
     }
@@ -37,23 +42,41 @@ public class Bank {
     public int getWithdrawalsCount() {
         int sum = 0;
         for (CashMachine cashMachine : cashMachines) {
+            if (cashMachine != null) {
             sum = sum + cashMachine.getWithdrawalsCount();
-        }
+            }
+         }
         return sum;
     }
 
     public double getAveragePaymentsCount() {
+        if (this.cashMachines.length == 0) {
+            return 0;
+        }
         double sum = 0;
         for (CashMachine cashMachine : cashMachines) {
-            sum = sum + cashMachine.getPaymentsSum();
-        }
+            if (cashMachine.getPaymentsCount() > 0) {
+                sum = sum + cashMachine.getPaymentsSum();
+                }
+            if (sum == 0) {
+                return 0;
+                }
+            }
         return sum / getPaymentsCount();
     }
 
     public double getAverageWithdrawalsCount() {
+        if (this.cashMachines.length == 0) {
+            return 0;
+        }
         double sum = 0;
         for (CashMachine cashMachine : cashMachines) {
-            sum = sum + cashMachine.getWithdrawalsSum();
+            if (cashMachine.getWithdrawalsCount() < 0) {
+                sum = sum + cashMachine.getWithdrawalsSum();
+            }
+            if (sum == 0) {
+                return 0;
+            }
         }
         return sum / getWithdrawalsCount();
     }

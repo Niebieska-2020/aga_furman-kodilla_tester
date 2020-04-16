@@ -48,6 +48,20 @@ public class BankTestSuite {
     }
 
     @Test
+    public void shouldReturnBalanceFromAllCashMachinesZeroWhenBankIsEmpty() {
+        // given
+        CashMachine cashMachine1 = createCashMachine(new int[]{0});
+        CashMachine cashMachine2 = createCashMachine(new int[]{100, -100});
+        Bank bank = createBank(new CashMachine[]{cashMachine1, cashMachine2});
+
+        // when
+        int totalBalance1 = bank.getBalance();
+
+        // then
+        assertEquals(0, totalBalance1);
+    }
+
+    @Test
     public void shouldGetCountAllPaymentsFromAllCashMachines() {
         // given
         CashMachine cashMachine1 = createCashMachine(new int[]{100, -50});
@@ -59,6 +73,20 @@ public class BankTestSuite {
 
         // then
         assertEquals(3, countPayments);
+    }
+
+    @Test
+    public void shouldCountPaymentsAndReturnZeroWhenBankIsEmpty() {
+        // given
+        CashMachine cashMachine1 = createCashMachine(new int[]{0});
+        CashMachine cashMachine2 = createCashMachine(new int[]{0});
+        Bank bank = createBank(new CashMachine[]{cashMachine1, cashMachine2});
+
+        // when
+        int countPayments1 = bank.getPaymentsCount();
+
+        // then
+        assertEquals(0, countPayments1);
     }
 
     @Test
@@ -76,6 +104,20 @@ public class BankTestSuite {
     }
 
     @Test
+    public void shouldCountWithdrawalsAndReturnZeroWhenBankIsEmpty() {
+        // given
+        CashMachine cashMachine1 = createCashMachine(new int[]{0});
+        CashMachine cashMachine2 = createCashMachine(new int[]{0});
+        Bank bank = createBank(new CashMachine[]{cashMachine1, cashMachine2});
+
+        // when
+        int countWithdrawals1 = bank.getWithdrawalsCount();
+
+        // then
+        assertEquals(0, countWithdrawals1);
+    }
+
+    @Test
     public void shouldGetAveragePaymentsCountFromAllCashMachines() {
         // given
         CashMachine cashMachine1 = createCashMachine(new int[]{100, -50});
@@ -87,6 +129,20 @@ public class BankTestSuite {
 
         // than
         assertEquals(300, averageResult);
+    }
+
+    @Test
+    public void shouldGetAveragePaymentsAndReturnZeroWhenBankIsEmpty() {
+        // given
+        CashMachine cashMachine1 = createCashMachine(new int[]{0});
+        CashMachine cashMachine2 = createCashMachine(new int[]{100, -100});
+        Bank bank = createBank(new CashMachine[]{cashMachine1, cashMachine2});
+
+        // when
+        double averageResult1 = bank.getAveragePaymentsCount();
+
+        // than
+        assertEquals(0, averageResult1);
     }
 
     @Test
@@ -104,17 +160,17 @@ public class BankTestSuite {
     }
 
     @Test
-    public void shouldReturnAverageEqualsZeroWhenCashMachinesIsEmpty() {
+    public void shouldGetAverageWithdrawalsAndReturnZeroWhenBankIsEmpty() {
         // given
         CashMachine cashMachine1 = createCashMachine(new int[]{0});
         CashMachine cashMachine2 = createCashMachine(new int[]{100, -100});
         Bank bank = createBank(new CashMachine[]{cashMachine1, cashMachine2});
 
         // when
-        double averageWithdrawals = bank.getAverageWithdrawalsCount();
+        double averageWithdrawals1 = bank.getAverageWithdrawalsCount();
 
-        // then
-        assertNotNull(averageWithdrawals);
+        // than
+        assertEquals(0, averageWithdrawals1);
     }
 
     private CashMachine createCashMachine(int[] transactions) {
