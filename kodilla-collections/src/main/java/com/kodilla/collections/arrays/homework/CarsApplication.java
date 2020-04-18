@@ -22,11 +22,13 @@ public class CarsApplication {
         Random random = new Random();
         int drawBrandCar = random.nextInt(3);
         int drawIncreaseSpeed = random.nextInt(110) + 10;
-        if (drawBrandCar == 0)
+        if (drawBrandCar == 0) {
             return new Ford(drawIncreaseSpeed);
-        else if (drawBrandCar == 1)
-                return new Opel(drawIncreaseSpeed);
-        else
-            return new Toyota(drawIncreaseSpeed);
+        } else {
+            if (drawBrandCar == 1) {
+            return new Opel(drawIncreaseSpeed);
+         } else {
+             return new Toyota(drawIncreaseSpeed);
+        }
     }
 }
