@@ -1,6 +1,6 @@
 package com.kodilla.collections.interfaces.homework;
 
-public class Toyota implements  Car{
+public class Toyota implements Car {
     int speed;
 
     public Toyota(int speed) {
@@ -13,12 +13,12 @@ public class Toyota implements  Car{
     }
 
     @Override
-    public void increaseSpeed() {
-        System.out.println(speed +=30);
+    public int increaseSpeed() {
+        return speed +=30;
     }
 
     @Override
-    public void decreaseSpeed() {
-        System.out.println(speed -=5);
+    public int decreaseSpeed() {
+        return speed -=5;
     }
 }
