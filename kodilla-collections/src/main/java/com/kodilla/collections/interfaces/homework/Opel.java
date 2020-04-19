@@ -2,10 +2,16 @@ package com.kodilla.collections.interfaces.homework;
 
 public class Opel implements Car {
     int speed;
+    public static String NAME = "Opel";
 
     public Opel(int speed) {
         this.speed = speed;
     }
+
+    public Opel() {
+        NAME = "Opel";
+    }
+
     @Override
     public int getSpeed() {
         return speed;
@@ -19,5 +25,10 @@ public class Opel implements Car {
     @Override
     public void decreaseSpeed() {
         System.out.println(speed -=20);
+    }
+
+    @Override
+    public String getName() {
+        return NAME;
     }
 }

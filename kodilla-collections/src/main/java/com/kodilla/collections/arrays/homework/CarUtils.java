@@ -5,25 +5,18 @@ import com.kodilla.collections.interfaces.homework.Ford;
 import com.kodilla.collections.interfaces.homework.Opel;
 import com.kodilla.collections.interfaces.homework.Toyota;
 
+import java.util.Random;
+
 public class CarUtils {
+    private static final Random RANDOM = new Random();
+
     public static void describeCar(Car car) {
-        System.out.println("-------------------------");
-        System.out.println("Brand car: " + getCarName(car));
-        System.out.println("Output speed: " + car.getSpeed());
-        System.out.println("Increased speed: " + car.increaseSpeed());
-        System.out.println("Decreased speed: " + car.decreaseSpeed());
+        car.getClass().getSimpleName();
     }
 
-    private static String getCarName(Car car) {
-        if (car instanceof Ford) {
-            return "Ford";
-        } else {
-            if (car instanceof Opel) {
-            return "Opel";
-        } else {
-            if (car instanceof Toyota) {
-                return "Toyota";
-        } else {
-            return "Unknown car brand.";
+    public static Car getCarByName(String carName) {
+        private static final String[] CAR_NAMES = new String[]{Ford.class.getSimpleName(), Opel.class.getSimpleName(), Toyota.class.getSimpleName()};
+        String carName = CAR_NAMES[RANDOM.nextInt(3)];
     }
 }
+

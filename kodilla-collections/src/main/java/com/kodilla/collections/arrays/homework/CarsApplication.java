@@ -8,27 +8,27 @@ import com.kodilla.collections.interfaces.homework.Toyota;
 import java.util.Random;
 
 public class CarsApplication {
+    private static final int MAX_CARS = 15;
+    private static final Random RANDOM = new Random();
 
-    public static void main(String[] args) {
-        Random random = new Random();
-        Car[] cars = new Car[random.nextInt(15) +1];
-        for (int n = 0; n < cars.length; n++)
-            cars[n] = drawCar();
-       for (Car car : cars)
-           CarUtils.describeCar(car);
+    public static Car getCarByName(String name) {
+        switch (name) {
+            case Ford.NAME:
+                return new Ford();
+            case Opel.NAME:
+                return new Opel();
+            case Toyota.NAME:
+                return new Toyota();
+        }
     }
 
-    public static Car drawCar() {
-        Random random = new Random();
-        int drawBrandCar = random.nextInt(3);
-        int drawIncreaseSpeed = random.nextInt(110) + 10;
-        if (drawBrandCar == 0) {
-            return new Ford(drawIncreaseSpeed);
-        } else {
-            if (drawBrandCar == 1) {
-            return new Opel(drawIncreaseSpeed);
-         } else {
-             return new Toyota(drawIncreaseSpeed);
-        }
+    private static Car[] initCars() {
+        Car[] cars = new Car[RANDOM.nextInt(MAX_CARS + 1)];
+        Car car = CarUtils.getCarByName(carName);
+        for (int n = 0; n < RANDOM.nextInt(5) + 1; n++) {
+            car.increaseSpeed();
+    }
+
+    private static void describeCars(Car[] cars) {
     }
 }
