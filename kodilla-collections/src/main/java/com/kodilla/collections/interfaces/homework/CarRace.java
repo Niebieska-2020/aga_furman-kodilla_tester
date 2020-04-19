@@ -18,7 +18,7 @@ public class CarRace {
             car.increaseSpeed();
         }
 
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             car.decreaseSpeed();
         }
         System.out.println(car.getSpeed());
