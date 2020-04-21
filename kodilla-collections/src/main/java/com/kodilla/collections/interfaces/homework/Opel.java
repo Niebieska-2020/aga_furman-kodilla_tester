@@ -5,7 +5,7 @@ public class Opel implements Car {
     public static String NAME = "Opel";
 
     public Opel(int speed) {
-        this.speed = speed;
+        this.speed = 0;
     }
 
     public Opel() {
@@ -19,12 +19,12 @@ public class Opel implements Car {
 
     @Override
     public void increaseSpeed() {
-        System.out.println(speed +=10);
+        speed +=10;
     }
 
     @Override
     public void decreaseSpeed() {
-        System.out.println(speed -=20);
+        speed -=20;
     }
 
     @Override
