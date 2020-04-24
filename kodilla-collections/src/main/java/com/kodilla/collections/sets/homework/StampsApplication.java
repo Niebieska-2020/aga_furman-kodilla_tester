@@ -12,7 +12,7 @@ public class StampsApplication {
         stamps.add(new Stamp("Poland", "L", false));
         stamps.add(new Stamp("Poland", "L", true));
 
-        System.out.println(stamps.size());
+        System.out.println("Collection contains: " + stamps.size() + " stamps.");
 
         for (Stamp stamp: stamps) {
             System.out.println(stamp);
