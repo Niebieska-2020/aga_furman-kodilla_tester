@@ -26,15 +26,6 @@ public class Stamp {
     }
 
     @Override
-    public String toString() {
-        return "Stamp{" +
-                "stampName='" + stampName + '\'' +
-                ", sizeStamp='" + sizeStamp + '\'' +
-                ", indicate=" + indicate +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Stamp)) return false;

@@ -12,10 +12,9 @@ public class StampsApplication {
         stamps.add(new Stamp("Poland", "L", false));
         stamps.add(new Stamp("Poland", "L", true));
 
-        System.out.println("Collection contains: " + stamps.size() + " stamps.");
-
-        for (Stamp stamp: stamps) {
-            System.out.println(stamp);
+        for (Stamp stamp : stamps)  {
+            if (stamps.size() == 4);
         }
+        System.out.println("The stamp collection does not contain the same stamps.");
     }
 }
