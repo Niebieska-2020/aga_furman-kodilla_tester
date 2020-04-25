@@ -6,29 +6,26 @@ import com.kodilla.collections.interfaces.homework.Opel;
 import com.kodilla.collections.interfaces.homework.Toyota;
 
 public class CarUtils {
+
     public static void describeCar(Car car) {
-        System.out.println("-------------------------");
-        System.out.println("Brand car");
-        System.out.println("Output speed: " + car.getSpeed());
-        System.out.println("Increased speed: " + car.increaseSpeed());
-        System.out.println("Decreased speed: " + car.decreaseSpeed());
+        System.out.println(car.getClass().getSimpleName() + " speed: " + car.getSpeed());
     }
 
-    private static String getCarName(Car car) {
-        if (car instanceof Ford) {
-            return "Ford";
-        } else {
-            if (car instanceof Opel) {
-                return "Opel";
-            } else {
-                if (car instanceof Toyota) {
-                    return "Toyota";
-                } else {
-                    return "Unknown car brand.";
-                }
-            }
+    public static Car getByName(String name) {
+        switch (name) {
+            case "Ford":
+                return new Ford();
+            case "Opel":
+                return new Opel();
+            case "Toyota":
+                return new Toyota();
+            case "Seat":
+            default:
+                throw new IllegalArgumentException("Illegal car brand name.");
         }
+
     }
 }
+
 
 
