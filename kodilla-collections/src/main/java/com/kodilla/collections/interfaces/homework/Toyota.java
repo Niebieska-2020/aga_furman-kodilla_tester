@@ -1,12 +1,10 @@
 package com.kodilla.collections.interfaces.homework;
 
-public class Toyota implements  Car{
-    int speed;
-    public static String NAME = "Toyota";
+import java.util.Objects;
 
-    public Toyota(int speed) {
-        this.speed = 0;
-    }
+public class Toyota implements  Car {
+    private int speed;
+    public static String NAME = "Toyota";
 
     public Toyota() {
         NAME = "Toyota";
@@ -24,11 +22,27 @@ public class Toyota implements  Car{
 
     @Override
     public void decreaseSpeed() {
-        speed -=5;
+        if ((speed -=5) < 0){
+            System.out.println(0);
+        }
+        return;
     }
 
     @Override
     public String getName() {
         return NAME;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Toyota)) return false;
+        Toyota toyota = (Toyota) o;
+        return speed == toyota.speed;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(speed);
     }
 }
