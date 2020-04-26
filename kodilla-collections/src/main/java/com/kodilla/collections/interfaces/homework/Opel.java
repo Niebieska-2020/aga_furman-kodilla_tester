@@ -22,9 +22,10 @@ public class Opel implements Car {
 
     @Override
     public void decreaseSpeed() {
-        if ((speed -=10) < 0){
-            System.out.println(0);
-        }
+        speed -=10;
+           if ((speed -=10) < 0){
+               speed =0;
+           }
         return;
     }
 

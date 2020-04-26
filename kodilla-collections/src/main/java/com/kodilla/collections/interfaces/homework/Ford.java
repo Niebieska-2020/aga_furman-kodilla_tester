@@ -22,8 +22,9 @@ public class Ford implements Car {
 
     @Override
     public void decreaseSpeed() {
+        speed -=10;
         if ((speed -=10) < 0){
-            System.out.println(0);
+            speed=0;
         }
         return;
     }

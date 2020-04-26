@@ -22,8 +22,9 @@ public class Toyota implements  Car {
 
     @Override
     public void decreaseSpeed() {
+        speed -=5;
         if ((speed -=5) < 0){
-            System.out.println(0);
+            speed =0;
         }
         return;
     }
