@@ -23,7 +23,6 @@ public class CarUtils {
             default:
                 throw new IllegalArgumentException("Illegal car brand name.");
         }
-
     }
 }
 

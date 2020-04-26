@@ -16,7 +16,6 @@ public class CarsListApplication {
         Toyota toyota = new Toyota();
         cars.add(toyota);
         cars.add(new Opel());
-
         cars.remove(2);
         cars.remove(toyota);
 
