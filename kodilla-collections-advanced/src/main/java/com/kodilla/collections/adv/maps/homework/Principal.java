@@ -3,8 +3,8 @@ package com.kodilla.collections.adv.maps.homework;
 import java.util.Objects;
 
 public class Principal {
-    private String firstName;
-    private String lastName;
+    private final String firstName;
+    private final String lastName;
 
     public Principal(String firstName, String lastName) {
         this.firstName = firstName;
