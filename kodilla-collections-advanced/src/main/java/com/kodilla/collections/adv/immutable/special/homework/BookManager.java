@@ -12,11 +12,15 @@ public class BookManager {
 
     public Book createBook(String title, String author) {
         Book book = new Book(title, author);
-        bookstore.add(book);
-        return book;
-    }
-
-    public int getSize() {
-        return bookstore.size();
+        if (!bookstore.contains(book)) {
+            bookstore.add(book);
+            return book;
+        }
+        for (Book book1 : bookstore) {
+            if (book1.equals(book)) {
+                return book1;
+            }
+        }
+        return null;
     }
 }
