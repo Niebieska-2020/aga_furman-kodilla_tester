@@ -1,6 +1,6 @@
 package com.kodilla.collections.adv.exercises.homework;
 
-import java.util.List;
+import java.util.*;
 
 public class FlightFinder {
 
