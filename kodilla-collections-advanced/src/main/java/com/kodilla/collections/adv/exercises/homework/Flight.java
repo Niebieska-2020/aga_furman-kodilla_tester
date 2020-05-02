@@ -1,5 +1,6 @@
 package com.kodilla.collections.adv.exercises.homework;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Flight {
@@ -31,5 +32,17 @@ public class Flight {
     @Override
     public int hashCode() {
         return Objects.hash(departure, arrival);
+    }
+
+    public String getDeparture(List<Flight> flights) {
+        return departure;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "departure='" + departure + '\'' +
+                ", arrival='" + arrival + '\'' +
+                '}';
     }
 }

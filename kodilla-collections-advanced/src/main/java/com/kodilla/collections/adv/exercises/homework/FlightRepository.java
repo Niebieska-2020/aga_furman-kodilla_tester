@@ -7,11 +7,11 @@ public class FlightRepository {
 
     public static List<Flight> getFlightsTable() {
         List<Flight> flights = new ArrayList<>();
-        flights.add(new Flight("Warszawa", "Kraków");
-        flights.add(new Flight("Kraków", "Warszawa"));
-        flights.add(new Flight("Kraków", "Gdańsk"));
-        flights.add(new Flight("Gdańsk", "Kraków"));
-        flights.add(new Flight("Warszawa", "Gdańsk"));
+        flights.add(new Flight("Warszawa", "Krakow"));
+        flights.add(new Flight("Krakow", "Warszawa"));
+        flights.add(new Flight("Krakow", "Gdansk"));
+        flights.add(new Flight("Gdansk", "Krakow"));
+        flights.add(new Flight("Warszawa", "Gdansk"));
         return flights;
     }
 }
