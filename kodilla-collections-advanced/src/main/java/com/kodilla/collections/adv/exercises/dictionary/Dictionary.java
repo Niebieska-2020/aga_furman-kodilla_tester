@@ -20,9 +20,11 @@ public class Dictionary {
         for (EnglishWord englishWord : dictionary.getOrDefault(polishWord, Collections.emptyList())) {
             if (englishWord.getPartOfSpeech().equals(partOfSpeech)) {
                 result.add(englishWord);
+            }
         }
-        return result;
-    }
+            return result;
+        }
+
 
     public int size() {
         return dictionary.size();

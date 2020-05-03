@@ -56,7 +56,7 @@ class DictionaryTestSuite {
 
         // then
         List<EnglishWord> expectedList = new ArrayList<>();
-        dictionary.addWord("brać", new EnglishWord(PartOfSpeech.NOUN, "brotherhood"));
+        expectedList.add(new EnglishWord(PartOfSpeech.NOUN, "brotherhood"));
         assertEquals(expectedList, result);
     }
 }
