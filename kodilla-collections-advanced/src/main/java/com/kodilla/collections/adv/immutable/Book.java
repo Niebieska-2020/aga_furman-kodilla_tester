@@ -13,7 +13,7 @@ public class Book {
         return author;
     }
 
-    public final String getTitle() {
+    public String getTitle() {
         return title;
     }
 }
