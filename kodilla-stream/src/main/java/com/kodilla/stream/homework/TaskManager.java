@@ -10,13 +10,9 @@ public class TaskManager {
         List<LocalDate> deadlineTask = TaskRepository.getTasks()
                 .stream()
                 .filter(dl -> dl.getDeadline().isAfter(currentDate))
-                .map(TaskManager :: getTaskDate)
+                .map(Task :: getDeadline)
                 .collect(Collectors.toList());
 
         System.out.println("Lista dat wszystkich zadań, których data jeszcze nie upłynęła: \n" + deadlineTask);
-    }
-
-    public static LocalDate getTaskDate(Task task) {
-        return task.getDeadline();
     }
 }
