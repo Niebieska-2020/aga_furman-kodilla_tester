@@ -20,12 +20,17 @@ public class GamblingMachineTestSuite {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/exceptionCorrectSetOfNumbers.csv")
-    public void shouldReturnTrueWhenSetOfNumbersIsCorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
+    public void shouldReturnExceptionWhenSetOfNumbersIsCorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
+        // When
         String[] split = userNumbers.split(",");
+
+        // Given
         Set<Integer> integers = new HashSet<>();
         for (String string : split) {
             integers.add(Integer.valueOf(string));
         }
+
+        // Then
         assertThrows(InvalidNumbersException.class, () -> {
             testee.howManyWins(integers);
         });
@@ -33,12 +38,17 @@ public class GamblingMachineTestSuite {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/exceptionUncorrectSetOfNumbers.csv")
-    public void shouldReturnFalseWhenSetOfNumbersIsUncorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
+    public void shouldReturnExceptionWhenSetOfNumbersIsUncorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
+        // When
         String[] split = userNumbers.split(",");
+
+        // Given
         Set<Integer> integers = new HashSet<>();
         for (String string : split) {
             integers.add(Integer.valueOf(string));
         }
+
+        // Then
         assertThrows(InvalidNumbersException.class, () -> {
             testee.howManyWins(integers);
         });
