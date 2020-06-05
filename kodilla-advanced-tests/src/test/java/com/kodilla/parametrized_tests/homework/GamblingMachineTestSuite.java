@@ -19,36 +19,30 @@ public class GamblingMachineTestSuite {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/exceptionCorrectSetOfNumbers.csv")
-    public void shouldReturnExceptionWhenSetOfNumbersIsCorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
-        // When
-        String[] split = userNumbers.split(",");
-
+    @CsvFileSource(resources = "/correctSetOfNumbers.csv")
+    public void shouldReturnExceptionWhenSetOfNumbersIsCorrectForUserNumber(String numbers) throws InvalidNumbersException {
         // Given
+        String[] split = numbers.split(" ");
         Set<Integer> integers = new HashSet<>();
         for (String string : split) {
             integers.add(Integer.valueOf(string));
         }
 
-        // Then
-        assertThrows(InvalidNumbersException.class, () -> {
-            testee.howManyWins(integers);
-        });
+        // When Then
+        testee.howManyWins(integers);
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/exceptionUncorrectSetOfNumbers.csv")
-    public void shouldReturnExceptionWhenSetOfNumbersIsUncorrectForUserNumber(String userNumbers, int expected) throws InvalidNumbersException {
-        // When
-        String[] split = userNumbers.split(",");
-
+    @CsvFileSource(resources = "/uncorrectSetOfNumbers.csv")
+    public void shouldReturnExceptionWhenSetOfNumbersIsUncorrectForUserNumber(String userNumbers) throws InvalidNumbersException {
         // Given
+        String[] split = userNumbers.split(" ");
         Set<Integer> integers = new HashSet<>();
         for (String string : split) {
             integers.add(Integer.valueOf(string));
         }
 
-        // Then
+        // When Then
         assertThrows(InvalidNumbersException.class, () -> {
             testee.howManyWins(integers);
         });
