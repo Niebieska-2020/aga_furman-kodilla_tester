@@ -1,5 +1,7 @@
 package com.kodilla.mockito;
 
+import com.kodilla.mockito.homework.Notification;
+
 import java.util.HashSet;
 import java.util.Set;
 
