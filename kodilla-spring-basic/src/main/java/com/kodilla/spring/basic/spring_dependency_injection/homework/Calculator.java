@@ -1,5 +1,6 @@
 package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -7,6 +8,7 @@ public class Calculator {
 
     private Display display;
 
+    @Autowired
     public Calculator(Display display) {
         this.display = display;
     }
@@ -30,11 +32,12 @@ public class Calculator {
     }
 
     public double divide(double a, double b) {
-        if ((a == 0) || (b == 0)) {
-            return 0;
+        if (b == 0) {
+            throw new IllegalStateException("Dividing by zero");
         }
-            double result = a / b;
-            display.display(result);
-            return result;
+
+        double result = a / b;
+        display.display(result);
+        return result;
     }
 }

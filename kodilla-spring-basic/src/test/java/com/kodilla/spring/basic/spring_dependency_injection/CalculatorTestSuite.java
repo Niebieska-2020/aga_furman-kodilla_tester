@@ -14,32 +14,45 @@ public class CalculatorTestSuite {
     Calculator bean = context.getBean(Calculator.class);
 
     @Test
-    public void add() {
-    double result = bean.add(6.2, 3.3);
-    Assertions.assertEquals(9.5, result);
+    public void shouldAdd() {
+        // when
+        double result = bean.add(6.2, 3.3);
+
+        // then
+        Assertions.assertEquals(9.5, result);
     }
 
     @Test
-    public void subtract() {
-    double result = bean.subtract(6.0,3.5);
-    Assertions.assertEquals(2.5, result);
+    public void shouldSubtract() {
+        // when
+        double result = bean.subtract(6.0,3.5);
+
+        // then
+        Assertions.assertEquals(2.5, result);
     }
 
     @Test
-    public void multiply() {
-    double result = bean.multiply(2.0, 3.0);
-    Assertions.assertEquals(6.0, result);
+    public void shouldMultiply() {
+        // when
+        double result = bean.multiply(2.0, 3.0);
+
+        // then
+        Assertions.assertEquals(6.0, result);
     }
 
     @Test
-    public void divide() {
-    double result = bean.divide(15.0, 5.0);
-    Assertions.assertEquals(3.0, result);
+    public void shouldDivide() {
+        // when
+        double result = bean.divide(15.0, 5.0);
+
+        // then
+        Assertions.assertEquals(3.0, result);
     }
 
     @Test
-    public void inDivideShouldReturnZeroWhenOneOfValuIsZero() {
-        double result = bean.divide(6.0, 0.0);
-        Assertions.assertEquals(0.0, result);
+    public void shouldRaiseExceptionWhenDividingByZero() {
+        Assertions.assertThrows(IllegalStateException.class, () -> {
+            bean.divide(10, 0);
+        });
     }
 }
