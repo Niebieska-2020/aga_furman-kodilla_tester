@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.time.LocalTime;
+
 @SpringBootApplication
 class ClockTestSuite {
 
@@ -13,9 +15,14 @@ class ClockTestSuite {
     public void shouldCreateDifferentTimes() {
         // given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Clock clock1 = context.getBean(Clock.class);
-        Clock clock2 = context.getBean(Clock.class);
-        Clock clock3 = context.getBean(Clock.class);
+        Clock firstBean = context.getBean(Clock.class);
+        Clock secondBean = context.getBean(Clock.class);
+        Clock thirdBean = context.getBean(Clock.class);
+
+        // when
+        LocalTime clock1 = firstBean.getCurrentTime();
+        LocalTime clock2 = secondBean.getCurrentTime();
+        LocalTime clock3 = thirdBean.getCurrentTime();
 
         // then
         Assertions.assertNotEquals(clock1, clock2);
