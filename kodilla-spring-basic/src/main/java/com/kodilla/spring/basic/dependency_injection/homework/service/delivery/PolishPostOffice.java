@@ -1,5 +1,8 @@
-package com.kodilla.spring.basic.dependency_injection.homework;
+package com.kodilla.spring.basic.dependency_injection.homework.service.delivery;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class PolishPostOffice implements DeliveryService {
 
     @Override
