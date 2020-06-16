@@ -1,16 +1,21 @@
 package com.kodilla.spring.basic.spring_dependency_injection.homework;
 
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.kodilla.spring.basic.spring_dependency_injection.homework.service.delivery.PolishPostOfficeService;
+import com.kodilla.spring.basic.spring_dependency_injection.homework.service.notification.SmsNotificationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ShippingCenter {
 
-    @Qualifier(value = "polishPostOffice")
-    private DeliveryService deliveryService;
+    private final PolishPostOfficeService deliveryService;
+    private final SmsNotificationService notificationService;
 
-    @Qualifier(value = "smsNotificationService")
-    private NotificationService notificationService;
+    @Autowired
+    public ShippingCenter(PolishPostOfficeService deliveryService, SmsNotificationService notificationService) {
+        this.deliveryService = deliveryService;
+        this.notificationService = notificationService;
+    }
 
     public String sendPackage(String address, double weight) {
         if (deliveryService.deliverPackage(address, weight)) {

@@ -1,9 +1,9 @@
-package com.kodilla.spring.basic.spring_dependency_injection.homework;
+package com.kodilla.spring.basic.spring_dependency_injection.homework.service.notification;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class EmailNotificationService implements NotificationService {
+@Service
+public class SmsNotificationService implements NotificationService {
 
     @Override
     public String success(String address) {
