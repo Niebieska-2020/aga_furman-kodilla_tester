@@ -1,16 +1,11 @@
 package com.kodilla.spring.basic.spring_configuration.homework;
 
-public class Cabrio implements Car {
+import java.time.LocalTime;
 
-    @Override
-    public boolean hasHeadlightsTurnedOn(int time) {
-        if (time >= 20 || time <= 6) {
-            System.out.println("Headlights are turn on.");
-            return true;
-        } else {
-            System.out.println("Headlights are turn off.");
-            return false;
-        }
+public class Cabrio extends AbstractCar {
+
+    public Cabrio(LocalTime hour) {
+        super(hour);
     }
 
     @Override
