@@ -1,6 +1,10 @@
-package com.kodilla.spring.basic.dependency_injection.homework;
+package com.kodilla.spring.basic.dependency_injection.homework.service.delivery;
 
-public class InPost implements DeliveryService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class InPostService implements DeliveryService {
+
     @Override
     public boolean deliverPackage(String address, double weight) {
         if (weight > 30) {
