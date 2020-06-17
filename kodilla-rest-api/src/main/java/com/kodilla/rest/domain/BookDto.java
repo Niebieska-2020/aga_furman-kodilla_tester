@@ -5,11 +5,10 @@ import java.util.Objects;
 public class BookDto {
 
     private String title;
+    private String author;
 
     public BookDto() {
     }
-
-    private String author;
 
     public BookDto(String title, String author) {
         this.title = title;
