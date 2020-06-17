@@ -2,9 +2,9 @@ package com.kodilla.rest.controller;
 
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,13 +13,14 @@ public class BookController {
 
     private final BookService bookService;
 
+    @Autowired
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @GetMapping
     public List<BookDto> getBooks() {
-        return new ArrayList<>();
+        return bookService.getBooks();
     }
 
     @PostMapping
