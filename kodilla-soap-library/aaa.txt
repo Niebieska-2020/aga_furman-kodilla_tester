@@ -1,0 +1,1 @@
+curl --header "content-type: text/xml" -d @kodilla-soap-library/sample/book-request.xml http://localhost:8080/ws/books.wsdl > kodilla-soap-library/sample/book-response.xml

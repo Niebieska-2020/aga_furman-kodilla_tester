@@ -1,7 +1,7 @@
 package com.kodilla.soap.ws;
 
-import com.kodilla.courses.soap_library.GetBookRequest;
-import com.kodilla.courses.soap_library.GetBookResponse;
+import com.kodilla.courses.soap.GetBookRequest;
+import com.kodilla.courses.soap.GetBookResponse;
 import com.kodilla.soap.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
