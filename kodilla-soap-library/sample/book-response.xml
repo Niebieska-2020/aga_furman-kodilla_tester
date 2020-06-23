@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getBookResponse xmlns:ns2="http://kodilla.com/courses/soap">
+            <ns2:book>
+                <ns2:title>Straznicy</ns2:title>
+                <ns2:author>Alan Moore</ns2:author>
+                <ns2:signature>Position 1</ns2:signature>
+                <ns2:release>2020</ns2:release>
+                <ns2:genre>SCI-FI</ns2:genre>
+            </ns2:book>
+        </ns2:getBookResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
