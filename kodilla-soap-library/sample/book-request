@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:kodilla="http://kodilla.com/courses/soap">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <kodilla:getBookRequest>
+            <kodilla:signature>Position 3</kodilla:signature>
+        </kodilla:getBookRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
