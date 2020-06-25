@@ -9,10 +9,6 @@ public class Teller {
         this.cashSlot = cashSlot;
     }
 
-    public Teller() {
-
-    }
-
     public void withdraw(Wallet wallet, int amount) {
             cashSlot.dispense(amount);
     }

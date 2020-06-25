@@ -3,6 +3,8 @@ package wallet;
 import io.cucumber.java8.En;
 import org.junit.Assert;
 
+import java.util.Optional;
+
 public class WalletSteps implements En {
 
     private Wallet wallet = new Wallet();
@@ -25,14 +27,18 @@ public class WalletSteps implements En {
 
         Given("I have deposited {int} in my wallet", (Integer money) -> {
             wallet.deposit(money);
+
         });
 
         When("I request {int}", (Integer amount) -> {
             teller.withdraw(wallet, amount);
+
         });
 
         Then("Not should be dispensed. Your balance is now {int}", (Integer balance) -> {
-            Assert.assertEquals(balance, CashSlot.class.getConstructor(cashSlot.getContents()));
+            Optional<Integer> optionalCashSlot = Optional.ofNullable(wallet.getBalance());
+            Integer balanceResult = optionalCashSlot.orElse(new CashSlot().getContents());
+            Assert.assertEquals(balance, balanceResult);
         });
     }
 }
