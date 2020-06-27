@@ -22,11 +22,11 @@ public class SuccessfulWalletSteps implements En {
         });
 
         Then("{int} should be dispensed", (Integer contents) -> {
-        Assert.assertEquals((int)contents, cashSlot.getContents());
+            Assert.assertEquals((int)contents, cashSlot.getContents());
         });
 
         Then("The balance of my wallet should be {int}", (Integer balance) -> {
-        Assert.assertEquals((int)balance, wallet.getBalance());
+            Assert.assertEquals((int)balance, wallet.getBalance());
         });
     }
 }

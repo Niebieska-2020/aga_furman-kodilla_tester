@@ -5,10 +5,8 @@ Feature: Cash Withdrawal successful path
     Then <contents> should be dispensed
     And The balance of my wallet should be <balance>
     Examples:
-    | money | amount | contents | balance |
-    | 200   | 30      | 30      | 170     |
-    | 200   | 250     | 200     | 0       |
-    | 200   | 0       | 0       | 200     |
-    | 200   | 200     | 200     | 0       |
-
-
+    | money | amount  | contents | balance |
+    | 200   | 30      | 30       | 170     |
+    | 200   | 250     | 0        | 200     |
+    | 200   | 0       | 0        | 200     |
+    | 200   | 200     | 200      | 0       |
