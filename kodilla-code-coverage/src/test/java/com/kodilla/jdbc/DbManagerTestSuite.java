@@ -100,6 +100,7 @@ public class DbManagerTestSuite {
         sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (2, 'Hello!')";
         statement.executeUpdate(sql);
         sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (2, 'How are you today?')";
+
         statement.executeUpdate(sql);
 
         //When
