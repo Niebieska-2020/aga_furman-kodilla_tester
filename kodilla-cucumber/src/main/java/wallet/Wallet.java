@@ -14,4 +14,15 @@ public class Wallet {
     public int getBalance() {
         return balance;
     }
+
+    public int debit(int money) {
+        if (balance >= money) {
+            this.balance = this.balance - money;
+            return money;
+        } else {
+            int temp = this.balance;
+            this.balance = 0;
+            return temp;
+        }
+    }
 }

@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/wallet/cash_withdrawal.feature"}
+        features = {"src/test/resources/wallet/cash_withdrawal_successful_path.feature", "src/test/resources/wallet/cash_withdrawal_unsuccessful_path.feature"}
 )
 public class TestRunnerWallet {
 }
