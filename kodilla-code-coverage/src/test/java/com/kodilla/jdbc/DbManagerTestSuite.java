@@ -58,43 +58,4 @@ public class DbManagerTestSuite {
         rs.close();
         statement.close();
     }
-
-    @Test
-    public void testSelectUsersAndPosts() throws SQLException {
-        // Given
-        DbManager dbManager = DbManager.getInstance();
-        String countQuery = "SELECT COUNT(*) AS USERS WHERE ID IN (SELECT USER_ID FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2)";
-        Statement statement = dbManager.getConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery(countQuery);
-        int count = 0;
-        while (resultSet.next()) {
-            count = resultSet.getInt("COUNT(*)");
-        }
-
-        String sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (6, 'Hi!')";
-        statement.executeUpdate(sql);
-        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (5, 'Hello!')";
-        statement.executeUpdate(sql);
-        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (5, 'How are you today?')";
-        statement.executeUpdate(sql);
-
-        //When
-        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
-        statement = dbManager.getConnection().createStatement();
-        resultSet = statement.executeQuery(sqlQuery);
-
-        //Then
-        int counter = 0;
-        while(resultSet.next()) {
-            System.out.println(resultSet.getString("FIRSTNAME") + ", " +
-                    resultSet.getString("LASTNAME"));
-            counter++;
-        }
-
-        int expected = count;
-        Assert.assertEquals(expected, counter);
-
-        resultSet.close();
-        statement.close();
-    }
 }
