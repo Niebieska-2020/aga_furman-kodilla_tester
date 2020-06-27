@@ -9,3 +9,6 @@ include 'kodilla-spring-basic'
 include 'kodilla-rest-api'
 include 'kodilla-selenium'
 include 'kodilla-soap-library'
+include 'kodilla-selenium'
+include 'kodilla-code-coverage'
+
