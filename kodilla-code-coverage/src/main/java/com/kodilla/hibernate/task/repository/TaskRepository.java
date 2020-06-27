@@ -9,7 +9,8 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class TaskRepository extends CrudRepository<Task, Integer> {
+public interface TaskRepository extends CrudRepository<Task, Long> {
+
     List<Task> findByDuration(int duration);
 
 }

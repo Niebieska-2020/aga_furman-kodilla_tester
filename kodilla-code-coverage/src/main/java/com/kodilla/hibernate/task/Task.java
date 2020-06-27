@@ -1,13 +1,14 @@
 package com.kodilla.hibernate.task;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "TASKS")
-public class Task {
-    private int id;
+@Table(name = "tasks")
+public class Task implements Serializable {
+
+    private Long id;
     private String description;
     private LocalDate created;
     private int duration;
@@ -18,15 +19,15 @@ public class Task {
         this.duration = duration;
     }
 
+    public Task() {
+    }
+
     @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "ID", unique = true)
-    public int getId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getId() {
         return id;
     }
 
-    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -36,12 +37,11 @@ public class Task {
         return created;
     }
 
-    @Column(name = "DURATION")
     public int getDuration() {
         return duration;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

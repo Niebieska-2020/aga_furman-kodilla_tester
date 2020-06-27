@@ -29,7 +29,7 @@ public class TaskRepositoryTestSuite {
         taskRepository.save(task);
 
         //Then
-        int id = task.getId();
+        Long id = task.getId();
         Optional<Task> readTask = taskRepository.findById(id);
         Assert.assertTrue(readTask.isPresent());
 
@@ -51,7 +51,7 @@ public class TaskRepositoryTestSuite {
         Assert.assertEquals(1, readTasks.size());
 
         //CleanUp
-        int id = readTasks.get(0).getId();
+        Long id = readTasks.get(0).getId();
         taskRepository.deleteById(id);
     }
 }
