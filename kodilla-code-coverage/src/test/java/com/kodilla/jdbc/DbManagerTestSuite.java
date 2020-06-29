@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static org.junit.Assert.assertEquals;
+
 public class DbManagerTestSuite {
 
     @Before
@@ -71,7 +73,7 @@ public class DbManagerTestSuite {
             counter++;
         }
         int expected = count + 5;
-        Assert.assertEquals(expected, counter);
+        assertEquals(expected, counter);
 
         rs.close();
         statement.close();
@@ -88,13 +90,6 @@ public class DbManagerTestSuite {
         sql = "INSERT INTO USERS(ID, FIRSTNAME, LASTNAME) VALUES (2, 'Mark', 'Boq')";
         statement.executeUpdate(sql);
 
-        String countQuery = "SELECT COUNT(*) AS USERS FROM kodilla_tester.users WHERE ID IN (SELECT USER_ID FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2)";
-        ResultSet resultSet = statement.executeQuery(countQuery);
-        int count = 0;
-        while (resultSet.next()) {
-            count = resultSet.getInt("USERS");
-        }
-
         sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (1, 'Hi!')";
         statement.executeUpdate(sql);
         sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (2, 'Hello!')";
@@ -106,7 +101,7 @@ public class DbManagerTestSuite {
         //When
         String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
         statement = dbManager.getConnection().createStatement();
-        resultSet = statement.executeQuery(sqlQuery);
+        ResultSet resultSet = statement.executeQuery(sqlQuery);
 
         //Then
         int counter = 0;
@@ -116,8 +111,7 @@ public class DbManagerTestSuite {
             counter++;
         }
 
-        int expected = count +1;
-        Assert.assertEquals(expected, counter);
+        assertEquals(1, counter);
 
         resultSet.close();
         statement.close();
