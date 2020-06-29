@@ -18,8 +18,8 @@ public class IsItSummerSteps implements En {
         Given("today is first day of August", () -> {
             this.today = MonthDay.of(8, 1);
         });
-
-        Given("today is second day of January", () -> {
+      
+              Given("today is second day of January", () -> {
             this.today = MonthDay.of(1, 2);
         });
 
