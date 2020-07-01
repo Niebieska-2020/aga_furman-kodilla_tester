@@ -20,11 +20,11 @@ public class Item {
     @Column(nullable = false)
     private BigDecimal value;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "INVOICE_ID")
     private Invoice invoice;
 
