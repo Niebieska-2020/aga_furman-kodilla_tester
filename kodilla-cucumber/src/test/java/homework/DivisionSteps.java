@@ -14,7 +14,7 @@ public class DivisionSteps implements En {
             this.number = numberInput;
         });
 
-        When("Checking if number is divisible by (\\d+) and (\\d+)", (Integer arg0, Integer arg1) -> {
+        When("Checking if number is divisible by 3 and 5", () -> {
             if (number % 3 == 0 && number % 5 == 0) {
                 this.message = "FizzBuzz";
             } else if (number % 3 == 0) {

@@ -1,6 +1,7 @@
 package com.kodilla.collections.interfaces;
 
 public class Circle implements Shape {
+
     double radius;
 
     public Circle(double radius) {
@@ -13,5 +14,9 @@ public class Circle implements Shape {
 
     public double getPerimeter() {
         return 2 * Math.PI * radius;
+    }
+
+    public double getRadius() {
+        return radius;
     }
 }

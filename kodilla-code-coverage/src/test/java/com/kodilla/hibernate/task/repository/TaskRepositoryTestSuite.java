@@ -2,6 +2,7 @@ package com.kodilla.hibernate.task.repository;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static org.junit.Assert.assertNotEquals;
 
@@ -23,6 +24,11 @@ public class TaskRepositoryTestSuite {
     private TaskRepository taskRepository;
 
     private static final String DESCRIPTION = "Test: Learn Hibernate";
+
+    @After
+    public void tearDown() throws Exception {
+        taskRepository.deleteAll();
+    }
 
     @Test
     public void testTaskRepositorySave () {
@@ -36,9 +42,6 @@ public class TaskRepositoryTestSuite {
         Long id = task.getId();
         Optional<Task> readTask = taskRepository.findById(id);
         Assert.assertTrue(readTask.isPresent());
-
-        //CleanUp
-        taskRepository.deleteById(id);
     }
 
     @Test
@@ -49,14 +52,10 @@ public class TaskRepositoryTestSuite {
         int duration = task.getDuration();
 
         //When
-        List<Task> readTasks = taskRepository.findByDuration(duration);
+        Set<Task> readTasks = taskRepository.findByDuration(duration);
 
         //Then
         Assert.assertEquals(1, readTasks.size());
-
-        //CleanUp
-        Long id = readTasks.get(0).getId();
-        taskRepository.deleteById(id);
     }
 
     @Test
@@ -72,8 +71,5 @@ public class TaskRepositoryTestSuite {
 
         //Then
         assertNotEquals(0, id);
-
-        //CleanUp
-        taskRepository.deleteById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.kodilla.collections.adv.maps.homework;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class School {
@@ -9,10 +10,7 @@ public class School {
 
     public School(String schoolName, Integer... students) {
         this.schoolName = schoolName;
-
-        for (Integer student : students) {
-            this.students.add(student);
-        }
+        this.students.addAll(Arrays.asList(students));
     }
 
     public String getSchoolName() {
@@ -20,10 +18,7 @@ public class School {
     }
 
     public int getCountStudent() {
-        int sum = 0;
-        for(int student : students) {
-            sum += student;
-         }
-        return sum;
+        return students.stream().reduce(Integer::sum).orElse(0);
     }
+
 }
