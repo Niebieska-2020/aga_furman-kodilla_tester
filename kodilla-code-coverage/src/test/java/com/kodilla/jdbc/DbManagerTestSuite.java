@@ -1,13 +1,33 @@
 package com.kodilla.jdbc;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static org.junit.Assert.assertEquals;
+
 public class DbManagerTestSuite {
+
+    @Before
+    public void beforeEach() throws SQLException {
+        DbManager dbManager = DbManager.getInstance();
+
+        String query = "DELETE FROM POSTS WHERE 1=1";
+        Statement statement = dbManager.getConnection().createStatement();
+        statement.executeUpdate(query);
+
+        query = "DELETE FROM ISSUES WHERE 1=1";
+        statement = dbManager.getConnection().createStatement();
+        statement.executeUpdate(query);
+
+        query = "DELETE FROM USERS WHERE 1=1";
+        statement = dbManager.getConnection().createStatement();
+        statement.executeUpdate(query);
+    }
 
     @Test
     public void testConnect() throws SQLException {
@@ -53,7 +73,7 @@ public class DbManagerTestSuite {
             counter++;
         }
         int expected = count + 5;
-        Assert.assertEquals(expected, counter);
+        assertEquals(expected, counter);
 
         rs.close();
         statement.close();
@@ -63,25 +83,25 @@ public class DbManagerTestSuite {
     public void testSelectUsersAndPosts() throws SQLException {
         // Given
         DbManager dbManager = DbManager.getInstance();
-        String countQuery = "SELECT COUNT(*) AS USERS WHERE ID IN (SELECT USER_ID FROM POSTS GROUP BY USER_ID HAVING COUNT(*) >= 2)";
         Statement statement = dbManager.getConnection().createStatement();
-        ResultSet resultSet = statement.executeQuery(countQuery);
-        int count = 0;
-        while (resultSet.next()) {
-            count = resultSet.getInt("COUNT(*)");
-        }
 
-        String sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (6, 'Hi!')";
+        String sql = "INSERT INTO USERS(ID, FIRSTNAME, LASTNAME) VALUES (1, 'Otman', 'Use')";
         statement.executeUpdate(sql);
-        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (5, 'Hello!')";
+        sql = "INSERT INTO USERS(ID, FIRSTNAME, LASTNAME) VALUES (2, 'Mark', 'Boq')";
         statement.executeUpdate(sql);
-        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (5, 'How are you today?')";
+
+        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (1, 'Hi!')";
+        statement.executeUpdate(sql);
+        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (2, 'Hello!')";
+        statement.executeUpdate(sql);
+        sql = "INSERT INTO POSTS(USER_ID, BODY) VALUES (2, 'How are you today?')";
+
         statement.executeUpdate(sql);
 
         //When
         String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME, COUNT(*) AS POSTS_NUMBER FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY P.USER_ID HAVING COUNT(*) >= 2";
         statement = dbManager.getConnection().createStatement();
-        resultSet = statement.executeQuery(sqlQuery);
+        ResultSet resultSet = statement.executeQuery(sqlQuery);
 
         //Then
         int counter = 0;
@@ -91,8 +111,7 @@ public class DbManagerTestSuite {
             counter++;
         }
 
-        int expected = count;
-        Assert.assertEquals(expected, counter);
+        assertEquals(1, counter);
 
         resultSet.close();
         statement.close();
