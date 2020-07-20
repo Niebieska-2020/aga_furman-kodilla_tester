@@ -1,5 +1,7 @@
 package com.kodilla.abstracts.homework;
 
+import static java.lang.Math.PI;
+
 public class Circle extends Shape {
         private int radius;
 
@@ -9,7 +11,7 @@ public class Circle extends Shape {
 
     @Override
     public double getFiled() {
-        return Math.PI*getRadius();
+        return PI * Math.pow(getRadius(), 2);
     }
 
     @Override

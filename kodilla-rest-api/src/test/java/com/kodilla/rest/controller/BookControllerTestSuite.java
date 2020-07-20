@@ -2,9 +2,11 @@ package com.kodilla.rest.controller;
 
 import com.kodilla.rest.domain.BookDto;
 import com.kodilla.rest.service.BookService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,5 +45,25 @@ class BookControllerTestSuite {
 
         // then
         Mockito.verify(bookServiceMock, Mockito.times(1)).addBook(bookDto);
+    }
+
+    @Test
+    public void shouldRemoveBook() {
+        // given
+        BookService bookServiceMock = Mockito.mock(BookService.class);
+        BookController bookController = new BookController(bookServiceMock);
+        List<BookDto> bookDtoList = new ArrayList<>();
+        bookDtoList.add(new BookDto("Title1", "Author1"));
+        bookDtoList.add(new BookDto("Title2", "Author2"));
+        bookDtoList.remove(new BookDto("Title1", "Author1"));
+        Mockito.when(bookServiceMock.getBooks()).thenReturn(bookDtoList);
+
+        // when
+        bookController.removeBook(new BookDto("Title1", "Author1"));
+        List<BookDto> listResult = bookController.getBooks();
+
+        // then
+        Mockito.verify(bookServiceMock, Mockito.times(1)).removeBook(new BookDto("Title1", "Author1"));
+        Assertions.assertEquals(1, listResult.size());
     }
 }

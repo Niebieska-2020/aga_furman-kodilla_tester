@@ -1,6 +1,7 @@
 package com.kodilla.hibernate.task.repository;
 
 import com.kodilla.hibernate.task.TaskFinancialDetails;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,11 @@ public class TaskFinancialDetailsRepositoryTestSuite {
     @Autowired
     TaskFinancialDetailsRepository taskFinancialDetailsRepository;
 
+    @After
+    public void tearDown() throws Exception {
+        taskFinancialDetailsRepository.deleteAll();
+    }
+
     @Test
     public void testFindByPaid() {
         //Given
@@ -32,8 +38,5 @@ public class TaskFinancialDetailsRepositoryTestSuite {
 
         //Then
         Assert.assertEquals(1, resultList.size());
-
-        //CleanUp
-        taskFinancialDetailsRepository.deleteById(id);
     }
 }
